@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.7"
+env:
+  - FLASK_APP=portal
+install:
+  - pip install -r requirements.txt
+script: coverage run -m pytest
+services:
+  - postgresql
+before_script:
+  - bash bin/create-db.sh test

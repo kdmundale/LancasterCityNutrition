@@ -1,0 +1,22 @@
+{
+  "name": "Lancaster City Nutrition App",
+  "description": "The online app for Lancaster City Nutrition",
+  "keywords": ["python", "flask", "postgresql", "heroku"],
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "12"
+    }
+  }],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "env": {
+    "FLASK_APP": {
+      "value": "LCN"
+    }
+  }
+}
