@@ -16,7 +16,7 @@
   },
   "env": {
     "FLASK_APP": {
-      "value": "LCN"
+      "value": "lcnapp"
     }
   }
 }

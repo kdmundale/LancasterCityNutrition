@@ -2,8 +2,8 @@ import os
 
 import pytest
 
-from portal import create_app
-from portal import db
+from LCNapp import create_app
+from LCNapp import db
 
 
 @pytest.fixture
@@ -12,7 +12,7 @@ def app():
 
     app = create_app({
         'TESTING': True,
-        'DB_URL': "postgresql://portal_user@localhost/portal_test"
+        'DB_URL': "postgresql://portal_user@localhost/LCN_test"
     })
 
     with app.app_context():
@@ -35,15 +35,15 @@ def runner(app):
 
     return app.test_cli_runner()
 
-class AuthActions(object):
-    def __init__(self, client):
-        self._client = client
-
 
 class AuthActions(object):
     def __init__(self, client):
         self._client = client
 
+
+class AuthActions(object):
+    def __init__(self, client):
+        self._client = client
 
     def login(self, email='teacher@stevenscollege.edu', password='qwerty'):
         return self._client.post(

@@ -2,7 +2,7 @@ language: python
 python:
   - "3.7"
 env:
-  - FLASK_APP=portal
+  - FLASK_APP=lcnapp
 install:
   - pip install -r requirements.txt
 script: coverage run -m pytest

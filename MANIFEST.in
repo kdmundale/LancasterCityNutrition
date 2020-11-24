@@ -1,4 +1,4 @@
-include portal/schema.sql
-graft portal/static
-graft portal/templates
+include lcnapp/schema.sql
+graft lcnapp/static
+graft lcnapp/templates
 global-exclude *.pyc

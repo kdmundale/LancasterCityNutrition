@@ -18,7 +18,7 @@ def create_app(test_config=None):
     # Default configuration, can be overwritten by specific environment
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DB_URL="postgresql://portal_user@localhost/portal",
+        DB_URL="postgresql://lcnapp_user@localhost/lcnapp",
         DB_SSLMODE="allow",
     )
 
@@ -44,11 +44,12 @@ def create_app(test_config=None):
 
     # Register Routes
     # ---------------
-    # from . import main
-    # app.register_blueprint(main.bp)
+    from . import member
+    app.register_blueprint(member.bp)
 
-    # from . import auth
-    # app.register_blueprint(auth.bp)
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     # Return application object to be used by a WSGI server, like gunicorn
+
     return app

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Hello, {{ g.user['first_name'] }}!{% endblock %}
+
+{% block content %}
+<article class="">
+
+  <h1></h1>
+
+    <div class="banner">
+      <h2>ANNOUNCEMENTS</h2>
+      <p>some text here about special stuff!</p>
+    </div>
+
+  <section id="specials" class="home_specials">
+    <div id="specials_div" class="home_box">
+      <h2>SPECIALS</h2>
+      <p>list of specials</p>
+      <ul>
+        <li>shake 1</li>
+        <li>shake 2</li>
+        <li>shake 3</li>
+      </ul>
+    </div>
+
+    <div id="top_5" class="home_box">
+      <h2 id="total_title">YOUVE HAD {{ total_shakes[0] }} SHAKES!!</h2>
+      <h3 id="top_5_title">TOP 5 </h3>
+      <table class="top_5_table">
+        <tbody>
+          <tr>
+            <th>NAME</th>
+            <th>STARS</th>
+            <th>THOUGHTS</th>
+            <th># SHAKES</th>
+          </tr>
+          {% for shake in member_top_5 %}
+          <tr>
+            <td>{{ shake['shake_name']}}</td>
+            <td>{{ shake['shake_rating']}}</td>
+            <td>{{ shake['shake_comment']}}</td>
+            <td>{{ shake['shake_freq']}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section id="menu_section">
+    <div class="menu_button_holder">
+      <button id="all" type="button" name="all">all</button>
+      <button id="had" type="button" name="had">had</button>
+      <button id="try" type="button" name="try">try</button>
+      <script defer src="{{ url_for('static', filename='js/userHome.js') }}" type="text/javascript"></script>
+    </div>
+    <h2>MENU</h2>
+    <div id="all_menu" class="shake_menu">
+    <h3>All Shakes</h3>
+    <ul>
+      {% for shake in all_shakes %}
+      <li>{{ shake['name']}}</li>
+      {% endfor %}
+    </ul>
+    </div>
+    <div id="had_menu" class="shake_menu">
+    <h3>Shakes I've Had</h3>
+    <ul>
+      {% for shake in had_shakes %}
+      <li>{{ shake['name']}}</li>
+      {% endfor %}
+    </ul>
+    </div>
+    <div id="try_menu" class="shake_menu">
+    <h3>Shakes To Try</h3>
+    <ul>
+      {% for shake in havent_had %}
+      <li>{{ shake['name']}}</li>
+      {% endfor %}
+    </ul>
+    </div>
+
+  </section>
+
+</article>
+{% endblock %}

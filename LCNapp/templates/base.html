@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css" />
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+
+        {% if g.user %}
+        <nav class="nav-bar">
+          <ul class="nav-bar-ul">
+            <li ><button class="nav-bar-button" onclick="goBack()">previous</button></li>
+            <li ><a class="nav-bar-opt" href="{{url_for('auth.logout')}}">log out</a></li>
+            {% if g.user['role'] == 'member' %}
+            <li ><a class="nav-bar-opt" href="">home</a></li>
+            {% else %}
+            <li ><a class="nav-bar-opt" href=""></a></li>
+            {% endif %}
+          </ul>
+        </nav>
+        <h1 class="title">Lancaster City Nutrition</h1>
+        <h1 class="page_title">{{ self.title() }}</h1>
+        {% endif %}
+
+      </header>
+
+      <body>
+
+      <main>
+
+        {% block content %}{% endblock %}
+      </main>
+
+      {% for message in get_flashed_messages() %}
+            <p class="flash">{{ message }}</p>
+      {% endfor %}
+
+      <footer>
+
+        <h4 class="footer-heading">Lancaster City Nutrition</h4>
+
+        <address>
+          <p class="footer-p">307 North Queen Street</p>
+          <p class="footer-p">Lancaster, PA 17603</p>
+          <p class="footer-p"><a href="tel:1-717-945-6741">717.945.6741</a></p>
+        </address>
+
+      </footer>
+
+    </body>
+  </html>
