@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Hello, {{ g.user['first_name'] }}!{% endblock %}
+
+{% block content %}
+<article class="">
+  <a href="{{ url_for('store.store_home') }}">Store Home</a>
+
+  <form class="store_shake_form" method="post">
+    <table >
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <th>Shake Name</th>
+          <th>#</th>
+        </tr>
+        {% for shake in shakes %}
+        <tr>
+          <td><input type="hidden" name="shake_id[]" value="{{ shake['id']}}">{{ shake['id']}}</td>
+          <td>{{ shake['name']}}</td>
+          <td><input type="number" id="num_shakes" name="num_shakes[]"></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <input class="login-button" type="submit" value="Add Sale" />
+
+</form>
+
+</article>
+{% endblock %}

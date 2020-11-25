@@ -14,6 +14,8 @@
   <body>
     <header>
 
+      <h1 class="title">Lancaster City Nutrition</h1>
+
         {% if g.user %}
         <nav class="nav-bar">
           <ul class="nav-bar-ul">
@@ -26,22 +28,23 @@
             {% endif %}
           </ul>
         </nav>
-        <h1 class="title">Lancaster City Nutrition</h1>
         <h1 class="page_title">{{ self.title() }}</h1>
+
         {% endif %}
+
+
 
       </header>
 
       <body>
+        {% for message in get_flashed_messages() %}
+              <p class="flash">{{ message }}</p>
+        {% endfor %}
 
       <main>
 
         {% block content %}{% endblock %}
       </main>
-
-      {% for message in get_flashed_messages() %}
-            <p class="flash">{{ message }}</p>
-      {% endfor %}
 
       <footer>
 

@@ -16,6 +16,7 @@ def hash_pass(password):
 
 @bp.route('/', methods=('GET', 'POST'))
 def login():
+
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -36,10 +37,10 @@ def login():
             print(user['id'], session['user_id'])
             if session['user_id'] == user['id'] and user['role'] == 'member':
                 return redirect(url_for('member.member_home'))
-            # elif session['user_id'] == user['id'] and user['role'] == 'admin':
-            #     return redirect(url_for('main.home'))
-            # elif session['user_id'] == user['id'] and user['role'] == 'guest':
-            #     return redirect(url_for('user.guest_view'))
+            elif session['user_id'] == user['id'] and user['role'] == 'store':
+                return redirect(url_for('store.store_home'))
+            elif session['user_id'] == user['id'] and user['role'] == 'admin':
+                return redirect(url_for('admin.admin_home'))
 
         flash(error)
 

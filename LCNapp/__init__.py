@@ -39,16 +39,25 @@ def create_app(test_config=None):
 
     # Setup Database
     # --------------
-    from . import db
+    from LCNapp import db
     db.init_app(app)
 
     # Register Routes
     # ---------------
-    from . import member
+    from LCNapp.member import member
     app.register_blueprint(member.bp)
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import register
+    app.register_blueprint(register.bp)
+
+    from LCNapp.store import store
+    app.register_blueprint(store.bp)
+
+    from LCNapp.admin import admin
+    app.register_blueprint(admin.bp)
 
     # Return application object to be used by a WSGI server, like gunicorn
 

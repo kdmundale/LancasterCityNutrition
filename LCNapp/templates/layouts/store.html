@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Hello, {{ g.user['first_name'] }}!{% endblock %}
+
+{% block content %}
+<article class="">
+
+  <h1></h1>
+
+    <div class="banner">
+      <h2>ANNOUNCEMENTS</h2>
+      <p>some text here about special stuff!</p>
+    </div>
+
+  <section id="specials" class="home_specials">
+    <div id="specials_div" class="home_box">
+      <h2>SPECIALS</h2>
+      <p>list of specials</p>
+      <ul>
+        <li>shake 1</li>
+        <li>shake 2</li>
+        <li>shake 3</li>
+      </ul>
+    </div>
+
+    <div class="store_home_container">
+      <h2>Total Shakes:{{ total_shakes[0] }}</h2>
+      <h2>Shakes Today:{{ shakes_today[0] }}</h2>
+    </div>
+
+    <div class="home_box">
+      <h2>Store Links</h2>
+        <ul>
+          <li><a href="">link 1</a></li>
+          <li><a href="">link 2</a></li>
+          <li><a href="">link 3</a></li>
+        </ul>
+    </div>
+  </section>
+  <section>
+    <a href="{{ url_for('store.store_shake_search') }}">Enter Shakes Sold</a>
+
+  </section>
+
+</article>
+{% endblock %}

@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   padding: 10px;
   text-shadow: #8e9c8e 1px 0 10px;
-  margin: 50px 10px 10px 10px;
+  margin: 70px 10px 10px 10px;
 }
 
 /**
@@ -49,12 +49,99 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 1rem;
+  width: 100vw;
+  margin: 0 auto;
 }
 header {
   display: flex;
   flex-direction: column;
   background-color: #c7d8c6;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  background-color: #c7d8c6;
+  width: 100vw;
+  margin: 0 auto;
+  left:0;
+}
+
+.footer-heading {
+  text-align: center;
+  font-family: 'Marck Script';
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+  text-shadow: #8e9c8e 1px 0 10px;
+  margin: 10px;
+}
+
+address {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bolder;
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  background-color: #a9b7c0;
+  width: 60%;
+  margin: 10px auto;
+}
+
+main{
+  margin: 1rem;
+}
+
+.loginH2 {
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #7e888f;
+  box-shadow: 0px 0px 7px 3px white;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.login-label{
+  display: block;
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+  margin: 10px;
+}
+
+.login-input {
+  width: 300px;
+  text-align: center;
+}
+
+.login-button {
+  background: linear-gradient(#8e9c8e,#c7d8c6,#8e9c8e);
+  width:100px;
+  margin: 20px auto;
+  border: none;
+  color:#7e888f;
+  padding: 10px;
+  border-radius: 20px 20px;
+  box-shadow: 0px 0px 7px 3px white;
+}
+
+.login-button:hover {
+  background: linear-gradient(#c7d8c6,#8e9c8e,#c7d8c6);
+  color: white;
 }
 
 .nav-bar{
@@ -104,6 +191,7 @@ header {
   padding: 20px;
   background-color: #efd9c1;
   box-shadow: 0px 0px 7px 3px white;
+  margin: 10px 0px 10px 0px;
 
 }
 
@@ -155,4 +243,14 @@ header {
 
 #all_menu {
   display: block;
+}
+
+.store_home_container {
+  text-align: center;
+}
+
+.store_shake_form {
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 20px;
 }

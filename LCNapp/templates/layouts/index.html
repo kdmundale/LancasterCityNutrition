@@ -3,13 +3,29 @@
 {% block title %}Lancaster City Nutrition{% endblock %}
 
 {% block content %}
-  <form class="login-form" method="post" class="">
-    <label class="login-label" for="email">EMAIL
-      <input type="email" name="email" />
-    </label>
-    <label class="login-label" for="password">PASSWORD
-      <input type="password" name="password" />
-    </label>
-    <input type="submit" value="Login" />
+
+  <div class="banner">
+    <h3>log in or <a href="{{ url_for('register.register') }}">register</a> to enjoy all the benefits of being a Lancaster City Nutrition member!</h3>
+
+  </div>
+
+  <form class="login-form" method="post">
+
+    <h2 class="loginH2">Login :)</h2>
+
+    <label class="login-label" for="email">Email</label>
+      <input class="login-input" type="email" name="email" />
+
+    <label class="login-label" for="password">Password</label>
+      <input class="login-input" type="password" name="password" />
+
+    <input class="login-button" type="submit" value="Login" />
   </form>
+
+  <div class="banner">
+    <h3>Or, you're welcome to continue as a guest!</h3>
+    <input class="login-button" type="submit" value="Guest" />
+
+
+  </div>
 {% endblock %}

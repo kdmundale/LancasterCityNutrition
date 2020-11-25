@@ -1,6 +1,6 @@
 from flask import Flask, render_template, g, redirect, url_for, Blueprint, request, session, abort
 
-from . import db
+from LCNapp import db
 from LCNapp.auth import login_required, member_required
 
 bp = Blueprint("member", __name__)

@@ -6,10 +6,12 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email text UNIQUE NOT NULL,
+    phone varchar(15),
     password bytea NOT NULL,
-    first_name text,
-    last_name text,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
     dob date,
+    register_date DATE DEFAULT CURRENT_DATE,
     last_login date,
     total_login bigint,
     role varchar(7) NOT NULL CHECK (role IN ('admin', 'member','guest','store'))
@@ -31,7 +33,7 @@ CREATE TABLE has_had (
   shake_id bigint NOT NULL,
   rating int,
   CHECK (rating BETWEEN 1 AND 5),
-  comment text,
+  comment varchar(50),
   this_shake int
 );
 
