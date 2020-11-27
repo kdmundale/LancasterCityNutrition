@@ -37,12 +37,12 @@ def store_home():
         shakes = cur.fetchall()
         cur.close()
         con.close()
-        return render_template("layouts/store.html", shakes=shakes, total_shakes=total_shakes, shakes_today=shakes_today)
+        return render_template("layouts/store/store.html", shakes=shakes, total_shakes=total_shakes, shakes_today=shakes_today)
 
     cur.close()
     con.close()
 
-    return render_template("layouts/store.html", total_shakes=total_shakes, shakes_today=shakes_today)
+    return render_template("layouts/store/store.html", total_shakes=total_shakes, shakes_today=shakes_today)
 
 
 @bp.route("/store-shake-search", methods=['GET', 'POST'])
@@ -103,4 +103,4 @@ def store_shake_search():
 
         con.close()
 
-    return render_template("layouts/store_shake.html", shakes=shakes)
+    return render_template("layouts/store/store_shake.html", shakes=shakes)

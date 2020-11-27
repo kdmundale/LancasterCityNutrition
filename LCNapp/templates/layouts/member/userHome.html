@@ -11,8 +11,6 @@
       <h2>ANNOUNCEMENTS</h2>
       <p>some text here about special stuff!</p>
     </div>
-
-  <section id="specials" class="home_specials">
     <div id="specials_div" class="home_box">
       <h2>SPECIALS</h2>
       <p>list of specials</p>
@@ -23,36 +21,39 @@
       </ul>
     </div>
 
+  <section id="specials" class="home_specials">
+
     <div id="top_5" class="home_box">
       <h2 id="total_title">YOUVE HAD {{ total_shakes[0] }} SHAKES!!</h2>
-      <h3 id="top_5_title">TOP 5 </h3>
       <table class="top_5_table">
+        <thead><tr><th class="top-5" colspan='4'>Top 5 Shakes</th></tr></thead>
         <tbody>
           <tr>
-            <th>NAME</th>
-            <th>STARS</th>
-            <th>THOUGHTS</th>
-            <th># SHAKES</th>
+            <th class="shake-table-header2"></th>
+            <th class="shake-table-header1"></th>
+            <th class="shake-table-header2"></th>
+            <th class="shake-table-header1"></th>
           </tr>
           {% for shake in member_top_5 %}
           <tr>
-            <td>{{ shake['shake_name']}}</td>
-            <td>{{ shake['shake_rating']}}</td>
-            <td>{{ shake['shake_comment']}}</td>
-            <td>{{ shake['shake_freq']}}</td>
+            <td class="top-5-name">{{ shake['shake_name']}}</td>
+            <td class="top-5-data">{{ shake['shake_rating']}}</td>
+            <td class="top-5-data">{{ shake['shake_comment']}}</td>
+            <td class="top-5-data">{{ shake['shake_freq']}}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
+      <button class="menu-button" type="button" name="button">view all</button>
     </div>
 
   </section>
 
   <section id="menu_section">
     <div class="menu_button_holder">
-      <button id="all" type="button" name="all">all</button>
-      <button id="had" type="button" name="had">had</button>
-      <button id="try" type="button" name="try">try</button>
+      <button class="menu-button" id="all" type="button" name="all">all</button>
+      <button class="menu-button" id="had" type="button" name="had">had</button>
+      <button class="menu-button" id="try" type="button" name="try">try</button>
       <script defer src="{{ url_for('static', filename='js/userHome.js') }}" type="text/javascript"></script>
     </div>
     <h2>MENU</h2>
@@ -80,6 +81,8 @@
       {% endfor %}
     </ul>
     </div>
+
+    <a class="nav-bar-opt" href="{{url_for('member.member_add_shake')}}">ADD MORE SHAKES!</a>
 
   </section>
 

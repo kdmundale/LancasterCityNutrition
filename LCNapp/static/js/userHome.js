@@ -3,7 +3,7 @@ const had_menu = document.getElementById('had_menu');
 const try_menu = document.getElementById('try_menu');
 
 function view_all_menu(){
-  if (all_menu.style.display === "none") {
+  if (all_menu.style.display == "none") {
     all_menu.style.display = "block";
   } else {
     all_menu.style.display = "block";
@@ -22,7 +22,7 @@ function view_all_menu(){
 }
 
 function view_had_menu(){
-  if (all_menu.style.display === "block") {
+  if (all_menu.style.display == "block") {
     all_menu.style.display = "none";
   } else {
     all_menu.style.display = "none";

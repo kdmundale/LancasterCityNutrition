@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Shake Sales{% endblock %}
+
+{% block content %}
+
+<form class="" method="post">
+
+
+  <label for="">Start Date</label>
+  <input type="date" name="sDate" value="">
+
+  <label for="">End Date</label>
+  <input type="date" name="eDate" value="">
+
+  <input class="login-button" type="submit" value="See Sales"/>
+
+
+</form>
+
+<table class="shake-table">
+  <tbody>
+    <thead><tr><th colspan='3'>{{ sDate }} - {{ eDate }}</th></tr></thead>
+    <thead><tr><th colspan='3'>Total Shakes:{{ total[0] }}</th></tr></thead>
+    <tr>
+      <th class="shake-table-header1">Id</th>
+      <th class="shake-table-header2">Shake Name</th>
+      <th class="shake-table-header1">#</th>
+    </tr>
+    {% for shake in shakes %}
+    <tr>
+      <td class="shake-table-data">{{ shake['shake_id']}}</td>
+      <td class="shake-table-data">{{ shake['name']}}</td>
+      <td class="shake-table-data">{{ shake['total_sales']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

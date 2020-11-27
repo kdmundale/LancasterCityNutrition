@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}More Shakes!{% endblock %}
+
+{% block content %}
+<article class="">
+  <div class="menu_button_holder">
+    <button class="menu-button" id="menu_a_button" type="button" name="menu_a_button">A-D</button>
+    <button class="menu-button" id="menu_e_button" type="button" name="menu_e_button">E-H</button>
+    <button class="menu-button" id="menu_i_button" type="button" name="menu_i_button">I-L</button>
+    <button class="menu-button" id="menu_m_button" type="button" name="menu_m_button">M-P</button>
+    <button class="menu-button" id="menu_q_button" type="button" name="menu_q_button">Q-U</button>
+    <button class="menu-button" id="menu_v_button" type="button" name="menu_v_button">V-Z</button>
+    <script defer type="text/javascript" src="{{ url_for('static', filename='js/shake_menu.js') }}"></script>
+  </div>
+
+  <form class="store_shake_form" method="post">
+    <div id="menu_box_a" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes A - D</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_e" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes E - H</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes1 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_i" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes I - L</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes2 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_m" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes M - P</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes3 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_q" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes Q - U</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes4 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" placeholder="5" name="rating" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_v" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Shakes V - Z</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in shakes5 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment" placeholder="delicious!" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  <input class="login-button" type="submit" value="Add Shakes" />
+
+</form>
+
+</article>
+{% endblock %}

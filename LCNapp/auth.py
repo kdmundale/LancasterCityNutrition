@@ -1,5 +1,6 @@
 import functools
 import bcrypt
+import datetime
 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
@@ -34,7 +35,20 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            print(user['id'], session['user_id'])
+            user_id = user['id']
+            now = datetime.datetime.now()
+            day = now.strftime("%Y-%m-%d")
+
+            con = db.get_db()
+            cur = con.cursor()
+            cur.execute("""UPDATE users
+                            SET last_login = %s
+                            WHERE id = %s""",
+                        (day, user_id))
+            g.db.commit()
+            cur.close()
+            con.close()
+
             if session['user_id'] == user['id'] and user['role'] == 'member':
                 return redirect(url_for('member.member_home'))
             elif session['user_id'] == user['id'] and user['role'] == 'store':

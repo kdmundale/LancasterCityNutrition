@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Account Information{% endblock %}
+
+{% block content %}
+<form class="" method="post">
+
+<table class="member-table">
+  <tr>
+    <th class="member-table-header"></th>
+    <th class="member-table-header1"></th>
+    <th class="member-table-header1">update</th>
+  </tr>
+  <tr>
+    <td>First</td>
+    <td>{{ user_info['first_name'] }}</td>
+    <td><input class="member-table-input" type="text" name="" value="{{ user_info['first_name'] }}"></td>
+  </tr>
+  <tr>
+    <td>Last</td>
+    <td>{{ user_info['last_name'] }}</td>
+    <td><input class="member-table-input" type="text" name="" value="{{ user_info['last_name'] }}"></td>
+
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ user_info['email'] }}</td>
+    <td><input class="member-table-input" type="text" name="email" value="{{ user_info['email'] }}"></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>{{ phone }}</td>
+    <td><input class="member-table-input" type="phone" name="phone" placeholder="please update phone number" value="{{ user_info['phone'] }}"></td>
+  </tr>
+  <tr>
+    <td>Birthday</td>
+    <td>{{ bDate }}</td>
+    <td><input class="member-table-input" type="date" name="DOB" placeholder="please update phone number" value="{{ user_info['phone'] }}"></td>
+  </tr>
+  <tr>
+    <td>Joined</td>
+    <td>{{ sDate }}</td>
+    <td></td>
+  </tr>
+
+</table>
+
+<input class="login-button" type="submit" value="submit" />
+
+</form>
+
+
+
+{% endblock %}

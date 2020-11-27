@@ -14,6 +14,7 @@
     <h2 class="loginH2">Register :)</h2>
 
     <label class="login-label" for="email">Email</label>
+    <p class="footer-p">Vadid email adrees, for login and so we can send you information about specials and events!</p>
       <input class="login-input" type="email" name="email" value="{{email}}"/>
 
     <label class="login-label" for="fName">First Name</label>
@@ -23,12 +24,17 @@
       <input class="login-input" type="text" name="lName" value="{{lName}}"/>
 
       <label class="login-label" for="phone">Phone Number</label>
+      <p class="footer-p">We won't call, but we may send texts about special offers!</p>
         <input class="login-input" type="tel" name="phone" value="{{phone}}" />
 
     <label class="login-label" for="dob">Birthday</label>
+    <p class="footer-p">You can lie about your age :)<br>But we'd love to know your
+      birthday so we can send you special birthday stuff!</p>
       <input class="login-input" type="date" name="dob" value="{{dob}}" />
 
-    <label class="login-label" for="password">Password<br>(8 characters, at least 1 number and 1 capital letter)</label>
+    <label class="login-label" for="password">Password</label>
+    <p class="footer-p">Make sure your passsword is 8 characters long, with at
+      least 1 capital letter and 1 number :)</p>
       <input class="login-input" type="password" name="password" />
 
     <label class="login-label" for="pass_confirm">Confirm Password</label>

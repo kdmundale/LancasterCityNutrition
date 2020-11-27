@@ -5,6 +5,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Slab', serif;
   font-weight: 400;
 }
 
@@ -43,6 +44,11 @@ ul {
   padding-inline-start: 0;
  }
 
+input {
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+ }
+
 body {
   background-color: #a9b7c0;
   justify-content: space-between;
@@ -78,6 +84,15 @@ footer{
   padding: 10px;
   text-shadow: #8e9c8e 1px 0 10px;
   margin: 10px;
+}
+
+.footer-p {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bolder;
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  width: 70%;
 }
 
 address {
@@ -129,6 +144,11 @@ main{
 }
 
 .login-button {
+  font-family: 'Josefin Slab', serif;
+  font-variant: small-caps;
+  font-weight: bolder;
+  font-size: 16px;
+  text-shadow: white 1px 0 10px;
   background: linear-gradient(#8e9c8e,#c7d8c6,#8e9c8e);
   width:100px;
   margin: 20px auto;
@@ -197,9 +217,9 @@ main{
 
 #specials {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 30px auto;
 }
 
@@ -211,21 +231,42 @@ main{
 }
 
 #specials_div {
-  width: 25%
+
 }
 
 #top_5 {
-  width: 70%;
+  width: 75%;
 }
 
 .top_5_table {
-  width: 90%;
+  width: 95%;
   box-shadow: 0px 0px 7px 3px white;
   background-color:#a9b7c0;
   margin: 10px auto;
   padding: 10px;
 }
 
+.top-5{
+  font-weight: bolder;
+  font-family: 'Josefin Slab', serif;
+  font-size: 24px;
+  color: white;
+  font-variant: small-caps;
+  padding: 5px;
+  text-shadow: #8e9c8e 1px 0 10px;
+  background: linear-gradient(#8e9c8e,#c7d8c6,#8e9c8e);
+}
+
+.top-5-name{
+  font-weight: bolder;
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  color: white;
+}
+
+.top-5-data {
+
+}
 #menu_section {
   display: flex;
   flex-direction: column;
@@ -233,12 +274,22 @@ main{
   justify-content: center;
 }
 
+li {
+  margin: 5px;
+}
+
 .shake_menu{
+  color: #6d786d;
+  font-size: 22px;
+  font-weight: bolder;
+  font-family: 'Josefin Slab', serif;
+
   display: none;
   text-align: center;
   box-shadow: 0px 0px 7px 3px white;
   background-color: #efd9c1;
   padding: 10px 20px 20px 20px;
+  margin-bottom: 30px;
 }
 
 #all_menu {
@@ -250,7 +301,111 @@ main{
 }
 
 .store_shake_form {
+  text-align: center;
   margin: 0 auto;
-  border: 1px solid white;
   padding: 20px;
+}
+
+.shake-table {
+  font-family: 'Josefin Slab', serif;
+  margin: 10px auto;
+  background-color: #efd9c1;
+  padding: 15px;
+}
+
+.shake-header {
+  color: white;
+  padding: 5px;
+  background-color: #8e9c8e;
+  font-size: 24px;
+  font-weight: bolder;
+  font-variant: small-caps;
+}
+
+.shake-table-header1 {
+  background-color: #a9b7c0;
+  width: 50px;
+  padding: 5px 0 5px 0;
+  color: white;
+}
+.shake-table-header2 {
+  background-color: #a9b7c0;
+  width: 250px;
+  padding: 5px 0 5px 0;
+  color: white;
+}
+
+.shake-table-data {
+  border-bottom: 1px solid white;
+}
+
+.menu_button_holder {
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.menu-button {
+  text-shadow: #6b6b67 1px 0 10px;
+  font-size: 20px;
+  font-family: 'Josefin Slab', serif;
+  box-shadow: 0px 0px 7px 3px white;
+  background-color: #cccbc6;
+  border: none;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px auto;
+}
+
+.menu_box{
+  display: none;
+  width: 95%;
+  margin: 20px auto;
+}
+
+#menu_box_a {
+  display: block;
+}
+
+.smNum {
+  width: 50px;
+}
+
+.txt {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.member-table {
+  box-shadow: 0px 0px 7px 3px white;
+  margin: 0 auto;
+  width: 98%;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 5px;
+}
+
+.member-table-header {
+  width: 20%;
+}
+
+.member-table-header1 {
+  width: 40%;
+}
+
+.member-table-input {
+  width: 100%;
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
 }
