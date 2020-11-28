@@ -8,41 +8,96 @@
     <h3>Already have an account? <a href="{{ url_for('auth.login') }}">Login</a>!</h3>
 
   </div>
+  <div class="login-form">
+    <form class="login-form" method="POST" action="{{ url_for('register.register') }}">
+      <h2 class="loginH2">Register</h2>
+      {{ form.hidden_tag() }}
+      <fieldset class="login-label">
+      {{ form.fName.label }}
+      {{ form.fName(class="login-input", placeholder="Sally") }}
+        {% if form.fName.errors %}
+        <ul class="errors">
+          {% for error in form.fName.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </fieldset>
+      <fieldset class="login-label">
+      {{ form.lName.label }}
+      {{ form.lName(class="login-input", placeholder="Smith") }}
+        {% if form.lName.errors %}
+        <ul class="errors">
+          {% for error in form.lName.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </fieldset>
 
-  <form class="login-form" method="post">
+      <fieldset class="login-label">
+        {{ form.phone.label }}
+        {{ form.phone(class="login-input", placeholder="1112223333") }}
+        {% if form.phone.errors %}
+          <ul class="errors">
+            {% for error in form.phone.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
 
-    <h2 class="loginH2">Register :)</h2>
+      <fieldset class="login-label">
+        {{ form.dob.label }}
+        {{ form.dob(class="login-input", placeholder="01/01/2001") }}
+        {% if form.dob.errors %}
+          <ul class="errors">
+            {% for error in form.dob.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
 
-    <label class="login-label" for="email">Email</label>
-    <p class="footer-p">Vadid email adrees, for login and so we can send you information about specials and events!</p>
-      <input class="login-input" type="email" name="email" value="{{email}}"/>
+      <fieldset class="login-label">
+        {{ form.email.label }}
+        {{ form.email(class="login-input", placeholder="SallySmith@email.com") }}
+        {% if form.email.errors %}
+          <ul class="errors">
+            {% for error in form.email.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
 
-    <label class="login-label" for="fName">First Name</label>
-      <input class="login-input" type="text" name="fName" value="{{fName}}" />
+      <fieldset class="login-label">
+        {{ form.password.label }}
+        {{ form.password(class="login-input", placeholder="8 characters") }}
+        {% if form.password.errors %}
+          <ul class="errors">
+            {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
+      <fieldset class="login-label">
+        {{ form.pass_confirm.label }}
+        {{ form.pass_confirm(class="login-input", placeholder="confirm password") }}
+        {% if form.pass_confirm.errors %}
+          <ul class="errors">
+            {% for error in form.pass_confirm.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
 
-    <label class="login-label" for="lName">Last Name</label>
-      <input class="login-input" type="text" name="lName" value="{{lName}}"/>
+      {{ form.register }}
 
-      <label class="login-label" for="phone">Phone Number</label>
-      <p class="footer-p">We won't call, but we may send texts about special offers!</p>
-        <input class="login-input" type="tel" name="phone" value="{{phone}}" />
-
-    <label class="login-label" for="dob">Birthday</label>
-    <p class="footer-p">You can lie about your age :)<br>But we'd love to know your
-      birthday so we can send you special birthday stuff!</p>
-      <input class="login-input" type="date" name="dob" value="{{dob}}" />
-
-    <label class="login-label" for="password">Password</label>
-    <p class="footer-p">Make sure your passsword is 8 characters long, with at
-      least 1 capital letter and 1 number :)</p>
-      <input class="login-input" type="password" name="password" />
-
-    <label class="login-label" for="pass_confirm">Confirm Password</label>
-      <input class="login-input" type="password" name="pass_confirm" />
-
-    <input class="login-button" type="submit" value="Register" />
-
-  </form>
+      </form>
+  </div>
 
   <div class="banner">
     <h3>Or, you're welcome to continue as a guest!</h3>

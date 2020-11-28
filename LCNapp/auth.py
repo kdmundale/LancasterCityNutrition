@@ -5,6 +5,7 @@ import datetime
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
+from .forms import LoginForm
 
 from . import db
 bp = Blueprint("auth", __name__)
@@ -18,9 +19,11 @@ def hash_pass(password):
 @bp.route('/', methods=('GET', 'POST'))
 def login():
 
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+    form = LoginForm(request.form)
+
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
 
         cur = db.get_db().cursor()
         error = None
@@ -58,7 +61,7 @@ def login():
 
         flash(error)
 
-    return render_template('layouts/index.html')
+    return render_template('layouts/index.html', form=form)
 
 
 @bp.route('/logout')

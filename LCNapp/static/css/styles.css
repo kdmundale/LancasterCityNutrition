@@ -109,16 +109,24 @@ address {
 main{
   margin: 1rem;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+}
 .loginH2 {
   font-weight: bolder;
   font-size: 30px;
   text-align: center;
   font-family: 'Josefin Slab', serif;
   color: white;
+  margin: 10px;
 }
 
 .login-form {
+  color: white;
   display: flex;
   flex-direction: column;
   background-color: #7e888f;
@@ -129,13 +137,17 @@ main{
 }
 
 .login-label{
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-weight: bolder;
+  border: none;
+  box-shadow: 0px 0px 7px 3px white;
   font-size: 20px;
   text-align: center;
   font-family: 'Josefin Slab', serif;
   color: white;
-  margin: 10px;
+  width: 100%;
+  margin: 10px 0 20px 0;
 }
 
 .login-input {
@@ -143,7 +155,7 @@ main{
   text-align: center;
 }
 
-.login-button {
+#login, #register {
   font-family: 'Josefin Slab', serif;
   font-variant: small-caps;
   font-weight: bolder;
@@ -157,6 +169,12 @@ main{
   padding: 10px;
   border-radius: 20px 20px;
   box-shadow: 0px 0px 7px 3px white;
+}
+
+.errors {
+  display: block;
+  background-color: yellow;
+  color: black;
 }
 
 .login-button:hover {
