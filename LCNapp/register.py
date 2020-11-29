@@ -32,7 +32,6 @@ def register():
         dob = form.dob.data
         phone = form.phone.data
         password = hash_pass(form.password.data)
-        today = date.today()
         total = 0
         role = "member"
 

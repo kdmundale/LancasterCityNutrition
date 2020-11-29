@@ -1,8 +1,8 @@
 from wtforms.fields.html5 import DateField
 import phonenumbers
 from flask_wtf import Form
-from wtforms import StringField, TextField, SubmitField, PasswordField, DateField
-from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length, EqualTo, Optional
+from wtforms import StringField, TextField, SubmitField, PasswordField, DateField, HiddenField, IntegerField
+from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length, EqualTo, Optional,  NumberRange
 
 
 class LoginForm(Form):
@@ -31,3 +31,29 @@ class ContactForm(Form):
                                                                          message=(u'passwords must match'))
                                                                  ])
     register = SubmitField('Register')
+
+
+class MemberUpdate(Form):
+    """Member update form"""
+    fName = StringField(
+        'First Name',
+        validators=[DataRequired()])
+    lName = StringField(
+        'Last Name', validators=[DataRequired()])
+    phone = StringField('Phone', validators=[Optional()])
+    email = StringField("Email", validators=[DataRequired(),
+                                             Email(message=(u'Little short for an email address?'))])
+    dob = DateField('Birthday', format='%m/%d/%Y', validators=[Optional()])
+
+    submit = SubmitField('Submit Changes')
+
+
+class ChangePassword(Form):
+    """Change Member Password"""
+    old_password = PasswordField('Old Password', validators=[DataRequired(), Length(min=8, message='Password is too short')
+                                                             ])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, message='Password is too short')
+                                                     ])
+    pass_confirm = PasswordField('Confirm Password', validators=[EqualTo('password',
+                                                                         message=(u'passwords must match'))
+                                                                 ])

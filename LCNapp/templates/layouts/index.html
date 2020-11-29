@@ -8,7 +8,7 @@
   <h3>log in or <a href="{{ url_for('register.register') }}">register</a> to enjoy all the benefits of being a Lancaster City Nutrition member!</h3>
 
 <div class="login-form">
-  <form  claspass_confirmethod="POST" action="{{url_for('auth.login')}}" method="post">
+  <form action="{{url_for('auth.login')}}" method="post">
     <h2 class="loginH2">Login</h2>
     {{ form.csrf_token }}
     <fieldset class="login-label">

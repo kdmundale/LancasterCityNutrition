@@ -25,7 +25,7 @@
             <li ><a class="nav-bar-opt" href="{{url_for('member.member_home')}}">member home</a></li>
             <li ><a class="nav-bar-opt" href="{{url_for('member.member_info')}}">account</a></li>
             {% elif g.user['role'] == 'store' %}
-            <li ><a class="nav-bar-opt" href="{{url_for('store.store_home')}}"></a>store home</li>
+            <li ><a class="nav-bar-opt" href="{{url_for('store.store_home')}}">store home</a></li>
             {% elif g.user['role'] == 'admin' %}
             <li ><a class="nav-bar-opt" href="{{url_for('admin.admin_home')}}">admin home</a></li>
             {% endif %}

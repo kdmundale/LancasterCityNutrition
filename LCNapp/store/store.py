@@ -25,38 +25,41 @@ def store_home():
                 (day,))
     shakes_today = cur.fetchone()
 
-    if request.method == 'POST':
-
-        shake = request.form['shake']
-        shake = shake + '%'
-
-        con = db.get_db()
-        cur = con.cursor()
-        cur.execute("""SELECT * FROM shakes WHERE name ILIKE %s""",
-                    (shake,))
-        shakes = cur.fetchall()
-        cur.close()
-        con.close()
-        return render_template("layouts/store/store.html", shakes=shakes, total_shakes=total_shakes, shakes_today=shakes_today)
-
     cur.close()
     con.close()
 
     return render_template("layouts/store/store.html", total_shakes=total_shakes, shakes_today=shakes_today)
 
 
-@bp.route("/store-shake-search", methods=['GET', 'POST'])
+@bp.route("/store_shakes", methods=['GET', 'POST'])
 @login_required
 @store_required
-def store_shake_search():
+def store_shakes():
+
+    like = '(a|b|c|d)%'
+    like2 = '(e|f|g|h)%'
+    like3 = '(i|j|k|l)%'
+    like4 = '(m|n|o|p)%'
+    like5 = '(q|r|s|t|u)%'
+    like6 = '(v|w|x|y|z)%'
+
+    def getShakes(x):
+        cur.execute("""SELECT * FROM shakes
+                    WHERE lower(name) SIMILAR TO %s
+                    AND available = True
+                    ORDER BY name ASC""",
+                    (x,))
+        shakes = cur.fetchall()
+        return shakes
 
     con = db.get_db()
     cur = con.cursor()
-    cur.execute("""SELECT * FROM shakes
-                ORDER BY name ASC""",
-                )
-    shakes = cur.fetchall()
-    cur.close()
+    shakes = getShakes(like)
+    shakes1 = getShakes(like2)
+    shakes2 = getShakes(like3)
+    shakes3 = getShakes(like4)
+    shakes4 = getShakes(like5)
+    shakes5 = getShakes(like6)
 
     if request.method == 'POST':
 
@@ -101,6 +104,8 @@ def store_shake_search():
                 g.db.commit()
                 cur.close()
 
-        con.close()
-
-    return render_template("layouts/store/store_shake.html", shakes=shakes)
+    cur.close()
+    con.close()
+    return render_template("layouts/store/store_shake.html", shakes=shakes,
+                           shakes1=shakes1, shakes2=shakes2, shakes3=shakes3,
+                           shakes4=shakes4, shakes5=shakes5)

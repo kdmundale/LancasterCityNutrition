@@ -3,52 +3,71 @@
 {% block title %}Account Information{% endblock %}
 
 {% block content %}
-<form class="" method="post">
 
-<table class="member-table">
-  <tr>
-    <th class="member-table-header"></th>
-    <th class="member-table-header1"></th>
-    <th class="member-table-header1">update</th>
-  </tr>
-  <tr>
-    <td>First</td>
-    <td>{{ user_info['first_name'] }}</td>
-    <td><input class="member-table-input" type="text" name="" value="{{ user_info['first_name'] }}"></td>
-  </tr>
-  <tr>
-    <td>Last</td>
-    <td>{{ user_info['last_name'] }}</td>
-    <td><input class="member-table-input" type="text" name="" value="{{ user_info['last_name'] }}"></td>
+<form class="login-form" method="POST" action="{{ url_for('member.member_info') }}">
+  <h2 class="loginH2">Update Account</h2>
+  <p>Member since {{ sDate }}</p>
+  {{ form.hidden_tag() }}
+  <fieldset class="login-label">
+  {{ form.fName.label }}
+  {{ form.fName(class="login-input") }}
+    {% if form.fName.errors %}
+    <ul class="errors">
+      {% for error in form.fName.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </fieldset>
+  <fieldset class="login-label">
+  {{ form.lName.label }}
+  {{ form.lName(class="login-input") }}
+    {% if form.lName.errors %}
+    <ul class="errors">
+      {% for error in form.lName.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </fieldset>
 
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td>{{ user_info['email'] }}</td>
-    <td><input class="member-table-input" type="text" name="email" value="{{ user_info['email'] }}"></td>
-  </tr>
-  <tr>
-    <td>Phone</td>
-    <td>{{ phone }}</td>
-    <td><input class="member-table-input" type="phone" name="phone" placeholder="please update phone number" value="{{ user_info['phone'] }}"></td>
-  </tr>
-  <tr>
-    <td>Birthday</td>
-    <td>{{ bDate }}</td>
-    <td><input class="member-table-input" type="date" name="DOB" placeholder="please update phone number" value="{{ user_info['phone'] }}"></td>
-  </tr>
-  <tr>
-    <td>Joined</td>
-    <td>{{ sDate }}</td>
-    <td></td>
-  </tr>
+  <fieldset class="login-label">
+    {{ form.phone.label }}
+    {{ form.phone(class="login-input") }}
+    {% if form.phone.errors %}
+      <ul class="errors">
+        {% for error in form.phone.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </fieldset>
 
-</table>
+  <fieldset class="login-label">
+    {{ form.dob.label }}
+    {{ form.dob(class="login-input") }}
+    {% if form.dob.errors %}
+      <ul class="errors">
+        {% for error in form.dob.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </fieldset>
 
-<input class="login-button" type="submit" value="submit" />
+  <fieldset class="login-label">
+    {{ form.email.label }}
+    {{ form.email(class="login-input") }}
+    {% if form.email.errors %}
+      <ul class="errors">
+        {% for error in form.email.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </fieldset>
+  {{ form.submit (class="login-button")}}
 
 </form>
-
-
 
 {% endblock %}

@@ -139,6 +139,7 @@ form {
 .login-label{
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-weight: bolder;
   border: none;
   box-shadow: 0px 0px 7px 3px white;
@@ -152,6 +153,7 @@ form {
 
 .login-input {
   width: 300px;
+  padding: 5px;
   text-align: center;
 }
 
@@ -175,6 +177,11 @@ form {
   display: block;
   background-color: yellow;
   color: black;
+}
+
+.login-button {
+  width: 200px;
+  padding: 10px 0;
 }
 
 .login-button:hover {
@@ -235,13 +242,14 @@ form {
 
 #specials {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items:stretch;
+  justify-content: space-around;
   margin: 30px auto;
 }
 
 .home_box {
+  width: 40%;
   box-shadow: 0px 0px 7px 3px white;
   background-color: #c7d8c6;
   padding: 20px;
@@ -249,6 +257,7 @@ form {
 }
 
 #specials_div {
+  width: 40%;
 
 }
 
@@ -319,6 +328,9 @@ li {
 }
 
 .store_shake_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin: 0 auto;
   padding: 20px;
@@ -405,7 +417,7 @@ li {
 
 .member-table {
   box-shadow: 0px 0px 7px 3px white;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 98%;
   font-family: 'Josefin Slab', serif;
   color: white;

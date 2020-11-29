@@ -11,6 +11,11 @@
       <h2>ANNOUNCEMENTS</h2>
       <p>some text here about special stuff!</p>
     </div>
+    
+    <div class="store_home_container">
+      <h2>Total Shakes:{{ total_shakes[0] }}</h2>
+      <h2>Shakes Today:{{ shakes_today[0] }}</h2>
+    </div>
 
   <section id="specials" class="home_specials">
     <div id="specials_div" class="home_box">
@@ -23,11 +28,6 @@
       </ul>
     </div>
 
-    <div class="store_home_container">
-      <h2>Total Shakes:{{ total_shakes[0] }}</h2>
-      <h2>Shakes Today:{{ shakes_today[0] }}</h2>
-    </div>
-
     <div class="home_box">
       <h2>Store Links</h2>
         <ul>
@@ -38,7 +38,7 @@
     </div>
   </section>
   <section>
-    <a href="{{ url_for('store.store_shake_search') }}">Enter Shakes Sold</a>
+    <a href="{{ url_for('store.store_shakes') }}">Enter Shakes Sold</a>
 
   </section>
 
