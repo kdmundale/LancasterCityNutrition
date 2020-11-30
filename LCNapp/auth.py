@@ -38,6 +38,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
+            total = int(user['total_login']) + 1
             user_id = user['id']
             now = datetime.datetime.now()
             day = now.strftime("%Y-%m-%d")
@@ -45,9 +46,9 @@ def login():
             con = db.get_db()
             cur = con.cursor()
             cur.execute("""UPDATE users
-                            SET last_login = %s
+                            SET last_login = %s, total_login = %s
                             WHERE id = %s""",
-                        (day, user_id))
+                        (day, total, user_id))
             g.db.commit()
             cur.close()
             con.close()
