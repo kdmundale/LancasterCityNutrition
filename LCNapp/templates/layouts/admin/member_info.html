@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Hello, {{ g.user['first_name'] }}!{% endblock %}
+
+{% block content %}
+
+<div class="menu_button_holder2">
+  <button class="menu-button2" id="all_user_button" type="button" name="all_user_button">All Users</button>
+  <button class="menu-button2" id="most_logins_button" type="button" name="most_logins_button">Most Logins</button>
+  <button class="menu-button2" id="most_shakes_button" type="button" name="most_shakes_button">Most Shakes by Member</button>
+  <button class="menu-button2" id="member_phone_button" type="button" name="member_phone_button">Member Phone #s</button>
+  <script defer type="text/javascript" src="{{ url_for('static', filename='js/admin_member_view.js') }}"></script>
+</div>
+
+<table id="all_user" class="shake-table">
+  <tbody>
+    <thead><tr><th class="shake-header" colspan='8'>All Members: {{ total_users[0] }}</th></tr></thead>
+    <tr>
+      <th class="user-table-header2">First</th>
+      <th class="user-table-header2">Last</th>
+      <th class="user-table-header2">Email</th>
+      <th class="user-table-header2">Phone</th>
+      <th class="user-table-header1">DOB</th>
+      <th class="user-table-header1">Reg</th>
+      <th class="user-table-header1">Last</th>
+      <th class="user-table-header1">Logins</th>
+    </tr>
+    {% for user in all_users %}
+    <tr>
+      <td class="shake-table-data">{{ user['first_name']}}</td>
+      <td class="shake-table-data">{{ user['last_name']}}</td>
+      <td class="shake-table-data">{{ user['email']}}</td>
+      <td class="shake-table-data">{{ user['phone']}}</td>
+      <td class="shake-table-data">{{ user['dob']}}</td>
+      <td class="shake-table-data">{{ user['register_date']}}</td>
+      <td class="shake-table-data">{{ user['last_login']}}</td>
+      <td class="shake-table-data">{{ user['total_login']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table id="most_logins" class="shake-table">
+  <tbody>
+    <thead><tr><th class="shake-header" colspan='8'> Top 10 Most Frequent Logins</th></tr></thead>
+    <tr>
+      <th class="shake-table-header2">First Name</th>
+      <th class="shake-table-header2">Last Name</th>
+      <th class="shake-table-header2">Email</th>
+      <th class="shake-table-header2">Phone</th>
+      <th class="shake-table-header1">Last</th>
+      <th class="shake-table-header1">Logins</th>
+    </tr>
+    {% for user in user_login_freq %}
+    <tr>
+      <td class="shake-table-data">{{ user['first_name']}}</td>
+      <td class="shake-table-data">{{ user['last_name']}}</td>
+      <td class="shake-table-data">{{ user['email']}}</td>
+      <td class="shake-table-data">{{ user['phone']}}</td>
+      <td class="shake-table-data">{{ user['last_login']}}</td>
+      <td class="shake-table-data">{{ user['total_login']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table id="most_shakes" class="shake-table">
+  <tbody>
+    <thead><tr><th class="shake-header" colspan='8'>Top 10 Members With Most Logged Shakes</th></tr></thead>
+    <tr>
+      <th class="user-table-header2">Email</th>
+      <th class="user-table-header1">Total Shakes</th>
+    </tr>
+    {% for user in user_shake_freq %}
+    <tr>
+      <td class="user-table-data">{{ user['email']}}</td>
+      <td class="user-table-data">{{ user['total']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table id="member_phone" class="shake-table">
+  <tbody>
+    <thead><tr><th class="shake-header" colspan='8'>Member Phone #s</th></tr></thead>
+    <tr>
+      <th class="shake-table-header2">First Name</th>
+      <th class="shake-table-header2">Last Name</th>
+      <th class="shake-table-header2">Email</th>
+      <th class="shake-table-header2">Phone</th>
+    </tr>
+    {% for user in user_phone %}
+    <tr>
+      <td class="shake-table-data">{{ user['first_name']}}</td>
+      <td class="shake-table-data">{{ user['last_name']}}</td>
+      <td class="shake-table-data">{{ user['email']}}</td>
+      <td class="shake-table-data">{{ user['phone']}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

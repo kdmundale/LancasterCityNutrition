@@ -96,3 +96,46 @@ def admin_store_reports():
 
     return render_template("layouts/admin/store_reports.html", shakes=shakes,
                            sDate=day, eDate=day, total=total)
+
+
+@bp.route("/admin/member_info", methods=['GET', 'POST'])
+@login_required
+@admin_required
+def member_info():
+
+    con = db.get_db()
+    cur = con.cursor()
+    cur.execute("""SELECT COUNT(*) FROM users""")
+    total_users = cur.fetchone()
+
+    cur.execute("""SELECT first_name, last_name, email, phone, dob, register_date, last_login, total_login
+                    FROM users
+                    WHERE role = 'member'
+                    ORDER BY total_login DESC
+                    LIMIT 10""")
+    user_login_freq = cur.fetchall()
+
+    cur.execute("""SELECT h.user_id, u.email, SUM(h.this_shake) AS total
+                    FROM has_had h
+                    JOIN (SELECT u.id, u.email
+                    FROM users u) u ON u.id = h.user_id
+                    GROUP BY h.user_id, u.email
+                    ORDER BY total DESC
+                    LIMIT 10""")
+    user_shake_freq = cur.fetchall()
+
+    cur.execute("""SELECT first_name, last_name, email, phone, dob, register_date, last_login, total_login FROM users
+                    ORDER BY last_name ASC""")
+    all_users = cur.fetchall()
+
+    cur.execute("""SELECT first_name, last_name, email, phone, dob, register_date, last_login, total_login FROM users
+                    WHERE phone IS NOT NULL
+                    ORDER BY last_name ASC""")
+    user_phone = cur.fetchall()
+
+    cur.close()
+    con.close()
+
+    return render_template("layouts/admin/member_info.html", total_users=total_users,
+                           user_login_freq=user_login_freq, user_shake_freq=user_shake_freq,
+                           all_users=all_users, user_phone=user_phone)
