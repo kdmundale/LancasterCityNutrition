@@ -75,6 +75,17 @@ footer{
   left:0;
 }
 
+.flash {
+  text-align: center;
+  padding: 10px;
+  background-color: darkgrey;
+  color: white;
+  border: 2px solid white;
+  font-size: 24px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
 .footer-heading {
   text-align: center;
   font-family: 'Marck Script';
@@ -93,6 +104,7 @@ footer{
   color: white;
   font-family: 'Josefin Slab', serif;
   width: 70%;
+  margin: 10px auto;
 }
 
 address {
@@ -136,6 +148,15 @@ form {
   margin: 30px auto;
 }
 
+.login-form-p {
+  font-size: 15px;
+  text-align: center;
+  width: 70%;
+  margin:5px;
+  margin-block-start:3px;
+  margin-block-end:10px;
+}
+
 .login-label{
   display: flex;
   flex-direction: column;
@@ -148,7 +169,7 @@ form {
   font-family: 'Josefin Slab', serif;
   color: white;
   width: 100%;
-  margin: 10px 0 20px 0;
+  margin: 15px 0 20px 0;
 }
 
 .login-input {
@@ -365,6 +386,24 @@ li {
   color: white;
 }
 
+.user-table-header1{
+  text-transform: capitalize;
+  font-weight: bolder;
+  background-color: #a9b7c0;
+  width: 8%;
+  padding: 2px 0 2px 0;
+  color: white;
+}
+
+.user-table-header2 {
+  text-transform: capitalize;
+  font-weight: bolder;
+  background-color: #a9b7c0;
+  width: 12%;
+  padding: 5px 0 5px 0;
+  color: white;
+}
+
 .shake-table-data {
   border-bottom: 1px solid white;
 }
@@ -379,7 +418,19 @@ li {
   margin: 0 auto;
 }
 
-.menu-button {
+.menu_button_holder2 {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 30vh;
+}
+
+
+.menu-button, .menu-button2 {
   text-shadow: #6b6b67 1px 0 10px;
   font-size: 20px;
   font-family: 'Josefin Slab', serif;
@@ -391,6 +442,10 @@ li {
   color: white;
   padding: 10px 20px;
   margin: 10px auto;
+}
+
+.menu-button2 {
+  width: 200px;
 }
 
 .menu_box{

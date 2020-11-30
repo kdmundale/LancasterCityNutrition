@@ -8,7 +8,7 @@
     <h3>Already have an account? <a href="{{ url_for('auth.login') }}">Login</a>!</h3>
 
   </div>
-  <div class="login-form">
+  <div>
     <form class="login-form" method="POST" action="{{ url_for('register.register') }}">
       <h2 class="loginH2">Register</h2>
       {{ form.hidden_tag() }}
@@ -34,8 +34,11 @@
         </ul>
         {% endif %}
       </fieldset>
-
       <fieldset class="login-label">
+        <p class="login-form-p">Don't worry, you dont have to provide your phone number.
+        BUT, if you do, we promise not to call you- or pass your information to anyone else.
+        Providing your number will allow us to text you special offers, news, and announcements.
+        WE SOLUMLY SWEAR we will not be annoying.</p>
         {{ form.phone.label }}
         {{ form.phone(class="login-input", placeholder="1112223333") }}
         {% if form.phone.errors %}
@@ -46,8 +49,10 @@
           </ul>
         {% endif %}
       </fieldset>
-
       <fieldset class="login-label">
+        <p class="login-form-p">We don't care if you lie about your age :)
+        In fact, you don't even have to prvode your birth date.
+        We'd just like to know so we can send you something special on yur birthday!</p>
         {{ form.dob.label }}
         {{ form.dob(class="login-input", placeholder="01/01/2001") }}
         {% if form.dob.errors %}
@@ -60,6 +65,9 @@
       </fieldset>
 
       <fieldset class="login-label">
+        <p class="login-form-p">We do need your email, this will be used to login.
+        We may occasionally send you announcements, coupons, or special offers.
+        BUT, we promise not to spam you.</p>
         {{ form.email.label }}
         {{ form.email(class="login-input", placeholder="SallySmith@email.com") }}
         {% if form.email.errors %}

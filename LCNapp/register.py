@@ -24,6 +24,7 @@ def hash_pass(password):
 def register():
 
     form = ContactForm(request.form)
+    error = None
 
     if form.validate_on_submit():
         email = form.email.data
@@ -105,6 +106,6 @@ def register():
         return render_template('layouts/register.html', form=form)
 
     else:
-        error = "form not submitted"
+
         flash(error)
         return render_template('layouts/register.html', form=form)
