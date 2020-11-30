@@ -55,5 +55,29 @@ class ChangePassword(Form):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, message='Password is too short')
                                                      ])
     pass_confirm = PasswordField('Confirm Password', validators=[EqualTo('password',
-                                                                         message=(u'passwords must match'))
-                                                                 ])
+                                                                         message=(u'passwords must match'))])
+    change = SubmitField('Change Password')
+
+
+class MemberSecarchDob(Form):
+    """Search for members by birth month form"""
+    dob = DateField('Birthday Month', format='%m', validators=[Optional()])
+
+    search1 = SubmitField('Birthday Month Search')
+
+
+class MemberSearchName(Form):
+    """Search for members by last name form"""
+    lName = StringField(
+        'Last Name', validators=[DataRequired()])
+    search2 = SubmitField('Last Name Search')
+
+
+class MemberSearchByRegister(Form):
+    """List memebers my registratin date form"""
+    search3 = SubmitField('List Members by Registration Date')
+
+
+class MemberEmailExport(Form):
+    """Form to export emails"""
+    exp_email = SubmitField('Export Emails')
