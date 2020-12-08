@@ -1,7 +1,7 @@
 from wtforms.fields.html5 import DateField
 import phonenumbers
 from flask_wtf import Form
-from wtforms import StringField, TextField, SubmitField, PasswordField, DateField, HiddenField, IntegerField
+from wtforms import StringField, TextField, SubmitField, PasswordField, DateField, HiddenField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length, EqualTo, Optional,  NumberRange
 
 
@@ -81,3 +81,14 @@ class MemberSearchByRegister(Form):
 class MemberEmailExport(Form):
     """Form to export emails"""
     exp_email = SubmitField('Export Emails')
+
+
+class AddItem(Form):
+    """Add new item to product menu"""
+    item_name = StringField(
+        'Item Name', validators=[DataRequired()])
+    description = StringField(
+        'Description', validators=[DataRequired()])
+    group = SelectField(
+        'Group #', choices=[(1, 1)(2, 2)(3, 3)(4, 4)(5, 5)(6, 6)(7, 7)(8, 8)(9, 9)(10, 10)], validators=[DataRequired()])
+    add_item = SubmitField('Add Item')

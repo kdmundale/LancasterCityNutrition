@@ -24,7 +24,7 @@ def hash_pass(password):
 def register():
 
     form = ContactForm(request.form)
-    error = None
+    error = 'Please fill out form to become a member :)'
 
     if form.validate_on_submit():
         email = form.email.data
@@ -102,7 +102,9 @@ def register():
 
         cur.close()
         con.close()
+
         flash(error)
+
         return render_template('layouts/register.html', form=form)
 
     else:

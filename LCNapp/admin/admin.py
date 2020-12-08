@@ -4,6 +4,7 @@ import datetime
 from flask import flash
 from LCNapp import db
 from LCNapp.auth import login_required, admin_required
+from LCNapp.forms import AddItem
 
 bp = Blueprint("admin", __name__)
 
@@ -139,3 +140,21 @@ def member_info():
     return render_template("layouts/admin/member_info.html", total_users=total_users,
                            user_login_freq=user_login_freq, user_shake_freq=user_shake_freq,
                            all_users=all_users, user_phone=user_phone)
+
+
+@bp.route("/admin/shake_menu", methods=['GET', 'POST'])
+@login_required
+@admin_required
+def admin_shake_menu():
+
+    form = AddItem(request.form)
+
+    con = db.get_db()
+    cur = con.cursor()
+    cur.execute("""SELECT * FROM shakes WHERE available = True""")
+    all_shakes = cur.fetchall()
+
+    cur.execute("""SELECT * FROM shakes WHERE available = False""")
+    not_shakes = cur.fetchall()
+
+    return render_template("layouts/admin/shake_menu.html", all_shakes=all_shakes, not_shakes=not_shakes, form=form)

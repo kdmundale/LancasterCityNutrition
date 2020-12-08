@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+from datetime import timedelta
 
 
 def create_app(test_config=None):
@@ -21,6 +22,8 @@ def create_app(test_config=None):
         DB_URL="postgresql://lcnapp_user@localhost/lcnapp",
         DB_SSLMODE="allow",
     )
+
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=60)
 
     if test_config is None:
         # App configuration for dev or prod if `config.py` exists
