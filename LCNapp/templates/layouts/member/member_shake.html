@@ -5,27 +5,31 @@
 {% block content %}
 <article class="">
   <div class="menu_button_holder">
-    <button class="menu-button" id="menu_a_button" type="button" name="menu_a_button">A-D</button>
-    <button class="menu-button" id="menu_e_button" type="button" name="menu_e_button">E-H</button>
-    <button class="menu-button" id="menu_i_button" type="button" name="menu_i_button">I-L</button>
-    <button class="menu-button" id="menu_m_button" type="button" name="menu_m_button">M-P</button>
-    <button class="menu-button" id="menu_q_button" type="button" name="menu_q_button">Q-U</button>
-    <button class="menu-button" id="menu_v_button" type="button" name="menu_v_button">V-Z</button>
+    <button class="menu-button" id="menu_1_button" type="button" name="menu_1_button">Smoothie/Tropical</button>
+    <button class="menu-button" id="menu_2_button" type="button" name="menu_2_button">Coffee Flavors</button>
+    <button class="menu-button" id="menu_3_button" type="button" name="menu_3_button">Cakes/Pie Flavors</button>
+    <button class="menu-button" id="menu_4_button" type="button" name="menu_4_button">Candy/Sweets</button>
+    <button class="menu-button" id="menu_5_button" type="button" name="menu_5_button">Specialty Flavors</button>
+    <button class="menu-button" id="menu_6_button" type="button" name="menu_6_button">Lifted Mega Teas</button>
+    <button class="menu-button" id="menu_7_button" type="button" name="menu_7_button">Coffee</button>
+    <button class="menu-button" id="menu_8_button" type="button" name="menu_8_button">Vegan Options</button>
+    <button class="menu-button" id="menu_9_button" type="button" name="menu_8_button">Season Specials</button>
+
     <script defer type="text/javascript" src="{{ url_for('static', filename='js/shake_menu.js') }}"></script>
   </div>
 
   <form class="store_shake_form" method="post">
-    <div id="menu_box_a" class="menu_box">
+    <div id="menu_box_1" class="menu_box">
     <table class="shake-table">
       <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes A - D</th></tr></thead>
+        <thead><tr><th class="shake-header" colspan='4'>Smoothie/Tropical</th></tr></thead>
         <tr>
           <th class="hidden"></th>
           <th class="shake-table-header2">Shake Name</th>
           <th class="shake-table-header1">Stars</th>
           <th class="shake-table-header2">Comments</th>
         </tr>
-        {% for shake in shakes %}
+        {% for shake in group_1 %}
         <tr>
           <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
           <td class="shake-table-data">{{ shake['name']}}</td>
@@ -36,17 +40,17 @@
       </tbody>
     </table>
     </div>
-    <div id="menu_box_e" class="menu_box">
+    <div id="menu_box_2" class="menu_box">
     <table class="shake-table">
       <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes E - H</th></tr></thead>
+        <thead><tr><th class="shake-header" colspan='4'>Coffee Flavors</th></tr></thead>
         <tr>
           <th class="hidden"></th>
           <th class="shake-table-header2">Shake Name</th>
           <th class="shake-table-header1">Stars</th>
           <th class="shake-table-header2">Comments</th>
         </tr>
-        {% for shake in shakes1 %}
+        {% for shake in group_2 %}
         <tr>
           <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
           <td class="shake-table-data">{{ shake['name']}}</td>
@@ -57,17 +61,17 @@
       </tbody>
     </table>
     </div>
-    <div id="menu_box_i" class="menu_box">
+    <div id="menu_box_3" class="menu_box">
     <table class="shake-table">
       <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes I - L</th></tr></thead>
+        <thead><tr><th class="shake-header" colspan='4'>Cakes/Pie Flavors</th></tr></thead>
         <tr>
           <th class="hidden"></th>
           <th class="shake-table-header2">Shake Name</th>
           <th class="shake-table-header1">Stars</th>
           <th class="shake-table-header2">Comments</th>
         </tr>
-        {% for shake in shakes2 %}
+        {% for shake in group_3 %}
         <tr>
           <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
           <td class="shake-table-data">{{ shake['name']}}</td>
@@ -78,38 +82,17 @@
       </tbody>
     </table>
     </div>
-    <div id="menu_box_m" class="menu_box">
+    <div id="menu_box_4" class="menu_box">
     <table class="shake-table">
       <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes M - P</th></tr></thead>
+        <thead><tr><th class="shake-header" colspan='4'>Candy/Sweets</th></tr></thead>
         <tr>
           <th class="hidden"></th>
           <th class="shake-table-header2">Shake Name</th>
           <th class="shake-table-header1">Stars</th>
           <th class="shake-table-header2">Comments</th>
         </tr>
-        {% for shake in shakes3 %}
-        <tr>
-          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
-          <td class="shake-table-data">{{ shake['name']}}</td>
-          <td class="shake-table-data"><input class="smNum" type="number" name="rating[]" placeholder="5" value=""></td>
-          <td class="shake-table-data"><input class="txt" type="text" name="comment[]" value=""></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    </div>
-    <div id="menu_box_q" class="menu_box">
-    <table class="shake-table">
-      <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes Q - U</th></tr></thead>
-        <tr>
-          <th class="hidden"></th>
-          <th class="shake-table-header2">Shake Name</th>
-          <th class="shake-table-header1">Stars</th>
-          <th class="shake-table-header2">Comments</th>
-        </tr>
-        {% for shake in shakes4 %}
+        {% for shake in group_4 %}
         <tr>
           <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
           <td class="shake-table-data">{{ shake['name']}}</td>
@@ -120,17 +103,101 @@
       </tbody>
     </table>
     </div>
-    <div id="menu_box_v" class="menu_box">
+    <div id="menu_box_5" class="menu_box">
     <table class="shake-table">
       <tbody>
-        <thead><tr><th class="shake-header" colspan='4'>Shakes V - Z</th></tr></thead>
+        <thead><tr><th class="shake-header" colspan='4'>Specialty Flavors</th></tr></thead>
         <tr>
           <th class="hidden"></th>
           <th class="shake-table-header2">Shake Name</th>
           <th class="shake-table-header1">Stars</th>
           <th class="shake-table-header2">Comments</th>
         </tr>
-        {% for shake in shakes5 %}
+        {% for shake in group_5 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating[]" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment[]" placeholder="delicious!" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_6" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Lifted Mega Teas</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in group_6 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating[]" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment[]" placeholder="delicious!" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_7" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Coffee</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in group_7 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating[]" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment[]" placeholder="delicious!" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_8" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Vegan Options</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in group_8 %}
+        <tr>
+          <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
+          <td class="shake-table-data">{{ shake['name']}}</td>
+          <td class="shake-table-data"><input class="smNum" type="number" name="rating[]" placeholder="5" value=""></td>
+          <td class="shake-table-data"><input class="txt" type="text" name="comment[]" placeholder="delicious!" value=""></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div id="menu_box_9" class="menu_box">
+    <table class="shake-table">
+      <tbody>
+        <thead><tr><th class="shake-header" colspan='4'>Season Specials</th></tr></thead>
+        <tr>
+          <th class="hidden"></th>
+          <th class="shake-table-header2">Shake Name</th>
+          <th class="shake-table-header1">Stars</th>
+          <th class="shake-table-header2">Comments</th>
+        </tr>
+        {% for shake in group_9 %}
         <tr>
           <td class="hidden"><input type="hidden" name="shake_id[]" value="{{ shake['id']}}"></td>
           <td class="shake-table-data">{{ shake['name']}}</td>

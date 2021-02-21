@@ -11,4 +11,10 @@ bp = Blueprint("main", __name__)
 @bp.route('/')
 def index():
 
-    return render_template('layouts/home.html')
+    return render_template('layouts/index.html')
+
+
+@bp.route('/menus', method=('GET'))
+def main_menu():
+
+    return render_template('layouts/menus.html')

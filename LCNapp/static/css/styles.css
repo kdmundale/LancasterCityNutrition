@@ -118,6 +118,118 @@ address {
   margin: 10px auto;
 }
 
+.home_page_div{
+  text-align: center;
+  border: 1px solid white;
+  background-color: #efd9c1;
+  box-shadow: 0px 0px 7px 3px white;
+  display: flex;
+  padding: 10px;
+  margin: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-link{
+  margin:10px;
+  text-decoration: none;
+}
+
+.hp-link:hover{
+  box-shadow: 0px 0px 4px 6px rgb(150,150,150);
+}
+
+.home_photo_link_div{
+  box-shadow: 0px 0px 7px 3px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;;
+  height: 100px;
+  margin: 5px;
+}
+
+#hfl1 {
+  background: url("https://lh3.googleusercontent.com/VjlX1xlpX9zT6DmxAXaADO3FKnfTC7P0ItXKlzV7meVwwoxKC8BfSNrqS7bGWmNz_85RdKIirCSCYZ4URyQmZjwibTS6ETB6PRm3S2OUImgQ1q9diuVk9WeLHFFpOtGPBMLDdjws_w=w2400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#hfl2 {
+  background: url("https://lh3.googleusercontent.com/zstXOPCxkulzlcQd9ac8T7gNFnkEqINilAH1xFChi0nOzS8w4IXkTfYyrLE7WB0gRJWkreS0m2iFZ2IAesPcYRd-5Wam2UXcPQTYtFKLGC2P0loGqYMNVdamB7TcyWIDEydiOFQ2qg=w2400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#hfl3 {
+  background: url("https://lh3.googleusercontent.com/DVvDj9xlSBubqFjNXR4r40CSQ-1JPMMa98Pn8in2SAsbWP_KkibNPz1ERvQMXa0Rl5pohY5pBwOlQCPeoeiODi9cU7AZvHhn8m1E0A1aDEb29N0VC_VQbsOKTCSMjgPRtInwhMrSsA=w2400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#hfl4 {
+  background: url("https://lh3.googleusercontent.com/fr9yLmk1uZDs3TgL77yOv0kxQgE1wGwGOqc2LS3908t0khUEGHx0jhdH-wk5obPJLbU-SUPj4KuW4Dn3anZZt9Jp3yBd0SuVXl_91xLhcDOokIUv7W7elaYhuChv8eQqgzDpTUb98A=w2400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#hfl5 {
+  background: url("https://lh3.googleusercontent.com/sXvebM74YvRRem_bzkFtHxk7jInARhyTcDPPSYOlqIvEbKm-7CIaPmQf8PQP7hY6YMMVPfdUms5-TnA9dW5W07dyViUEV1hveMqesbnUjkIFxo2qa-J63qJdOoWysaPHfZ4oKW_xFQ=w2400");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hflp {
+  font-family: 'Josefin Slab';
+  font-variant: small-caps;
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.hflp:hover{
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hp-image{
+  width: 90%;
+  height: 300px;
+  border: 1px solid white;
+}
+
+.hp-s-box{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.hp-s-h{
+  background-color: rgba(255,255,255,.3);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+}
+
+.hp-s-d{
+  text-align: center;
+  width: 200px;
+  margin:5px;
+  font-size: 20px;
+}
+
 main{
   margin: 1rem;
 }
@@ -154,6 +266,76 @@ form {
   margin: 30px auto;
 }
 
+#home-login-window {
+  display: none;
+}
+
+.home-dropdown{
+  border: 1px solid white;
+  background: darkgrey;
+  box-shadow: 0px 0px 7px 3px white;
+  text-align: right;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 65px;
+  right: 10px;
+  width: 150px;
+  z-index: 10;
+}
+
+.home-dropdown a{
+  color: white;
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  width: 95%;
+}
+
+.home-dropdown a:hover{
+  background-color: white;
+  color: darkgrey;
+}
+
+#login_button, #register_button, #home_menu_button{
+  z-index: 10;
+  width: 70px;
+  border: 1px solid white;
+  position: fixed;
+  top: 10px;
+  right: 135px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  background-color: darkgrey;
+  font-family: 'Josefin Slab';
+  font-size: 15px;
+  padding: 15px 0 15px 0;
+}
+
+#register_button {
+  position: fixed;
+  top: 10px;
+  right: 65px;
+}
+
+#home_menu_button {
+  border: none;
+  background-color: inherit;
+  background-image: url("../images/menu.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  padding: 23px 0 23px 0px;
+  position: fixed;
+  top: 10px;
+  right:10px;
+}
+
 .login-form-p {
   font-size: 15px;
   text-align: center;
@@ -169,7 +351,6 @@ form {
   align-items: center;
   font-weight: bolder;
   border: none;
-  box-shadow: 0px 0px 7px 3px white;
   font-size: 20px;
   text-align: center;
   font-family: 'Josefin Slab', serif;
@@ -261,11 +442,22 @@ form {
 }
 
 .banner {
-  padding: 20px;
+  position: fixed;
+  height: 65px;
+  top:0;left: 0; right:0;
+  z-index: 1;
+  padding: 0px;
   background-color: #efd9c1;
   box-shadow: 0px 0px 7px 3px white;
-  margin: 10px 0px 10px 0px;
+}
 
+#banner-txt{
+  position: fixed;
+  top:0px;
+  right: 220px;
+  text-align:center;
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 #specials {

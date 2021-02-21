@@ -19,10 +19,10 @@ CREATE TABLE users (
 
 CREATE TABLE shakes (
   id SERIAL PRIMARY KEY,
-  name text UNIQUE NOT NULL,
+  name text NOT NULL,
   shake_group int NOT NULL,
   CHECK (shake_group BETWEEN 1 AND 10),
-  description text UNIQUE NOT NULL,
+  description text,
   suggestions text,
   available boolean NOT NULL
 );

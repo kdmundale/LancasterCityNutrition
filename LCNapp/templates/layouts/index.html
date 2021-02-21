@@ -4,10 +4,20 @@
 
 {% block content %}
 
+<button id="login_button" type="button" name="button">Log In</button>
+<a id="register_button" href="#">Register</a>
+<button id="home_menu_button" type="button" name="button"> </button>
 <div class="banner">
-  <h3>log in or <a href="{{ url_for('register.register') }}">register</a> to enjoy all the benefits of being a Lancaster City Nutrition member!</h3>
-
-<div class="login-form">
+  <h3 id="banner-txt">enjoy all the benefits of being a Lancaster City Nutrition member!</h3>
+</div>
+<div id="home-d" class="home-dropdown">
+  <a href="#" class="home-dropdown-link">1</a>
+  <a href="#" class="home-dropdown-link">2</a>
+  <a href="#" class="home-dropdown-link">3</a>
+  <a href="#" class="home-dropdown-link">4</a>
+  <a href="#" class="home-dropdown-link">5</a>
+</div>
+<div id="home-login-window" class="login-form">
   <form action="{{url_for('auth.login')}}" method="post">
     <h2 class="loginH2">Login</h2>
     {{ form.csrf_token }}
@@ -37,11 +47,113 @@
 
     </form>
 </div>
+<section class="home_page_div">
+  <h1>Welcome to the home of healthy shakes and teas in downtown Lancaster, Pa!</h1>
 
-  <div class="banner">
-    <h3>Or, you're welcome to continue as a guest!</h3>
-    <input class="login-button" type="submit" value="Guest" />
+  <a class="hp-link" href="#hp-about"><div id="hfl1" class="home_photo_link_div">
+    <p class="hflp">about us</p>
+  </div></a>
+  <a class="hp-link" href="#hp-another"><div id="hfl2" class="home_photo_link_div">
+    <p class="hflp">another link</p>
+  </div></a>
+  <a class="hp-link" href="#hp-menu"><div id="hfl3" class="home_photo_link_div">
+    <p class="hflp">shake menu</p>
+  </div></a>
+  <a class="hp-link" href="#"><div id="hfl4" class="home_photo_link_div">
+    <p class="hflp">snacks</p>
+  </div></a>
+  <a class="hp-link" href="#hp-tea"><div id="hfl5" class="home_photo_link_div">
+    <p class="hflp">teas menu</p>
+  </div></a>
 
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit metus eget iaculis fermentum. Pellentesque lobortis urna id leo dictum, quis fringilla arcu posuere. In turpis tellus, auctor vel semper quis, tincidunt ornare magna. Aenean venenatis iaculis tortor sed suscipit. Morbi congue suscipit imperdiet. Sed id risus scelerisque, vulputate eros sit amet, suscipit libero. Donec aliquet viverra nulla, sed rhoncus lectus congue non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam cursus ut est nec posuere. Quisque a lacus vehicula, bibendum risus nec, egestas felis. Vivamus porta imperdiet scelerisque. Donec rhoncus congue sapien quis cursus. Fusce commodo id ante quis bibendum. Mauris eget urna quis nibh facilisis faucibus. Vivamus iaculis id felis id mollis.</p>
+</section>
 
+<section id="hp-menu" class="home_page_div">
+
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">smoothie & tropical</h2>
+    {%for s in s1%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
   </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">coffee flavors</h2>
+    {%for s in s2%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">cakes & pies</h2>
+    {%for s in s3%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">candy & sweets</h2>
+    {%for s in s4%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">specialties</h2>
+    {%for s in s5%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">shakes 7</h2>
+    {%for s in s7%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">vegan options</h2>
+    {%for s in s8%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">shakes seasonal</h2>
+    {%for s in s9%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div class="hp-s-box">
+    <h2 class="hp-s-h">lifted teas</h2>
+    {%for s in s6%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+  <div id="hp-tea" class="hp-s-box">
+    <h2 class="hp-s-h">seasonal teas</h2>
+    {%for s in s10%}
+    <p class="hp-s-d">{{s[0]}}</p>
+    {%endfor%}
+  </div>
+</section>
+
+<section id="hp-about" class="home_page_div">
+  <h1 class="hp-s-h">About</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit metus eget iaculis fermentum. Pellentesque lobortis urna id leo dictum, quis fringilla arcu posuere. In turpis tellus, auctor vel semper quis, tincidunt ornare magna. Aenean venenatis iaculis tortor sed suscipit. Morbi congue suscipit imperdiet. Sed id risus scelerisque, vulputate eros sit amet, suscipit libero. Donec aliquet viverra nulla, sed rhoncus lectus congue non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam cursus ut est nec posuere. Quisque a lacus vehicula, bibendum risus nec, egestas felis. Vivamus porta imperdiet scelerisque. Donec rhoncus congue sapien quis cursus. Fusce commodo id ante quis bibendum. Mauris eget urna quis nibh facilisis faucibus. Vivamus iaculis id felis id mollis.</p>
+
+</section>
+<section id="hp-another" class="home_page_div">
+  <h1 class="hp-s-h">Another Section</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit metus eget iaculis fermentum. Pellentesque lobortis urna id leo dictum, quis fringilla arcu posuere. In turpis tellus, auctor vel semper quis, tincidunt ornare magna. Aenean venenatis iaculis tortor sed suscipit. Morbi congue suscipit imperdiet. Sed id risus scelerisque, vulputate eros sit amet, suscipit libero. Donec aliquet viverra nulla, sed rhoncus lectus congue non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam cursus ut est nec posuere. Quisque a lacus vehicula, bibendum risus nec, egestas felis. Vivamus porta imperdiet scelerisque. Donec rhoncus congue sapien quis cursus. Fusce commodo id ante quis bibendum. Mauris eget urna quis nibh facilisis faucibus. Vivamus iaculis id felis id mollis.</p>
+  <a class="hp-link" href="#hp-another"><div id="hfl2" class="home_photo_link_div">
+    <p class="hflp">another link</p>
+  </div></a>
+</section>
+<section id="hp-hl" class="home_page_div">
+  <h1 class="hp-s-h">HerbaLife</h1>
+  <img class="hp-img" src="" alt="">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit metus eget iaculis fermentum. Pellentesque lobortis urna id leo dictum, quis fringilla arcu posuere. In turpis tellus, auctor vel semper quis, tincidunt ornare magna. Aenean venenatis iaculis tortor sed suscipit. Morbi congue suscipit imperdiet. Sed id risus scelerisque, vulputate eros sit amet, suscipit libero. Donec aliquet viverra nulla, sed rhoncus lectus congue non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam cursus ut est nec posuere. Quisque a lacus vehicula, bibendum risus nec, egestas felis. Vivamus porta imperdiet scelerisque. Donec rhoncus congue sapien quis cursus. Fusce commodo id ante quis bibendum. Mauris eget urna quis nibh facilisis faucibus. Vivamus iaculis id felis id mollis.</p>
+  <a class="hp-link" href="#hp-another"><div id="hfl2" class="home_photo_link_div">
+    <p class="hflp">another link</p>
+  </div></a>
+</section>
+<script defer type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+
 {% endblock %}

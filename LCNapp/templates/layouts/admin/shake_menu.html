@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Hello, {{ g.user['first_name'] }}!{% endblock %}
+
+{% block content %}
+<div class="menu_button_holder2">
+  <button class="menu-button2" type="button" name="button">current menu</button>
+  <button class="menu-button2" type="button" name="button">not available</button>
+  <button class="menu-button2" type="button" name="button">add shakes</button>
+</div>
+
+<table class="shake-table">
+  <tbody>
+    <thead>
+      <tr>
+        <th colspan="5">current menu</th>
+      </tr>
+    </thead>
+      <tr>
+        <table width="90%" style="margin: 0 auto;">
+          <tr>
+            <th class="shake-table-header1">id</th>
+            <th class="shake-table-header2">name</th>
+            <th class="shake-table-header1">group</th>
+            <th class="shake-table-header2">description</th>
+          </tr>
+        </table>
+      </tr>
+      <tr>
+        <div style="width:90%; height:300px; overflow:auto; margin:0 auto;">
+          <table cellspacing="0" cellpadding="1" border="1" >
+            {% for shake in all_shakes %}
+            <tr style="background-color: #efd9c1;">
+              <td >{{ shake['id']}}</td>
+              <td >{{ shake['name']}}</td>
+              <td >{{ shake['shake_group']}}</td>
+              <td >{{ shake['description']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+        <tr>
+          <form method='post'>
+            {{ form.hidden_tag() }}
+          <td colspan='2'> {{ form.shake_id1 }} </td>
+          <td> {{ form.switch_avail }} </td>
+          </form>
+        </tr>
+    </tbody>
+  </table>
+
+  <table class="shake-table">
+    <tbody>
+      <thead>
+        <tr>
+          <th colspan="4">not available</th>
+        </tr>
+      </thead>
+        <tr>
+          <th class="shake-table-header1">id</th>
+          <th class="shake-table-header2">name</th>
+          <th class="shake-table-header1">group</th>
+          <th class="shake-table-header2">description</th>
+        </tr>
+        {% for shake in not_shakes %}
+        <tr>
+          <td >{{ shake['id']}}</td>
+          <td >{{ shake['name']}}</td>
+          <td >{{ shake['shake_group']}}</td>
+          <td >{{ shake['description']}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <form method='post'>
+            {{ form1.hidden_tag() }}
+          <td colspan='2'> {{ form1.shake_id2 }} </td>
+          <td> {{ form1.switch_unavail }} </td>
+          </form>
+        </tr>
+    </tbody>
+    </table>
+
+    <table class="shake-table"><form method='post'>
+      <tbody>
+        <thead>
+          <tr>
+            <th colspan="2">ADD</th>
+          </tr>
+        </thead>
+          <tr>
+              {{ form2.hidden_tag() }}
+            <td>{{ form2.item_name.label }}</td><td>{{ form2.item_name(class="login-input", placeholder="Item Name")}}</td>
+          </tr>
+          <tr>
+            <td>{{ form2.description.label}}</td><td>{{ form2.description(class="login-input", placeholder="Description")}}</td>
+          </tr>
+          <tr>
+            <td>{{ form2.group.label}}</td><td>{{ form2.group }}</td>
+          </tr>
+          <tr>
+            <td colspan="2">{{ form2.add_item }}</td>
+          </tr>
+      </tbody>
+
+    </form></table>
+
+
+{% endblock %}

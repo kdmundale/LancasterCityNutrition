@@ -47,6 +47,7 @@ def create_app(test_config=None):
 
     # Register Routes
     # ---------------
+
     from LCNapp.member import member
     app.register_blueprint(member.bp)
 

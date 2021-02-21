@@ -64,16 +64,9 @@ def member_home():
 @member_required
 def member_add_shake():
 
-    like = '(a|b|c|d)%'
-    like2 = '(e|f|g|h)%'
-    like3 = '(i|j|k|l)%'
-    like4 = '(m|n|o|p)%'
-    like5 = '(q|r|s|t|u)%'
-    like6 = '(v|w|x|y|z)%'
-
     def getShakes(x):
         cur.execute("""SELECT * FROM shakes
-                    WHERE lower(name) SIMILAR TO %s
+                    WHERE shake_group = %s
                     AND available = True
                     ORDER BY name ASC""",
                     (x,))
@@ -82,12 +75,15 @@ def member_add_shake():
 
     con = db.get_db()
     cur = con.cursor()
-    shakes = getShakes(like)
-    shakes1 = getShakes(like2)
-    shakes2 = getShakes(like3)
-    shakes3 = getShakes(like4)
-    shakes4 = getShakes(like5)
-    shakes5 = getShakes(like6)
+    group_1 = getShakes(1)
+    group_2 = getShakes(2)
+    group_3 = getShakes(3)
+    group_4 = getShakes(4)
+    group_5 = getShakes(5)
+    group_6 = getShakes(6)
+    group_7 = getShakes(7)
+    group_8 = getShakes(8)
+    group_9 = getShakes(9)
 
     if request.method == 'POST':
 
@@ -140,9 +136,10 @@ def member_add_shake():
     cur.close()
     con.close()
 
-    return render_template("layouts/member/member_shake.html", shakes=shakes,
-                           shakes1=shakes1, shakes2=shakes2, shakes3=shakes3,
-                           shakes4=shakes4, shakes5=shakes5)
+    return render_template("layouts/member/member_shake.html", group_1=group_1,
+                           group_2=group_2, group_3=group_3, group_4=group_4,
+                           group_5=group_5, group_6=group_6, group_7=group_7,
+                           group_8=group_8, group_9=group_9)
 
 
 @bp.route("/member/account", methods=['GET', 'POST'])

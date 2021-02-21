@@ -4,7 +4,7 @@ import datetime
 from flask import flash
 from LCNapp import db
 from LCNapp.auth import login_required, admin_required
-from LCNapp.forms import AddItem
+from LCNapp.forms import AddItem, MakeUnavail, MakeAvail
 
 bp = Blueprint("admin", __name__)
 
@@ -147,14 +147,72 @@ def member_info():
 @admin_required
 def admin_shake_menu():
 
-    form = AddItem(request.form)
+    form = MakeUnavail(request.form)
+    form1 = MakeAvail(request.form)
+    form2 = AddItem(request.form)
+
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
     con = db.get_db()
     cur = con.cursor()
-    cur.execute("""SELECT * FROM shakes WHERE available = True""")
+    cur.execute(
+        """SELECT * FROM shakes WHERE available = True ORDER BY shake_group ASC""")
     all_shakes = cur.fetchall()
 
     cur.execute("""SELECT * FROM shakes WHERE available = False""")
     not_shakes = cur.fetchall()
 
-    return render_template("layouts/admin/shake_menu.html", all_shakes=all_shakes, not_shakes=not_shakes, form=form)
+    if form.validate_on_submit():
+
+        shake_id1 = form.shake_id1.data
+        switch = form.switch_avail.data
+
+        print(shake_id1, switch)
+
+        cur.execute("""UPDATE shakes
+                    SET available = False
+                    WHERE id = %s""",
+                    (shake_id1,))
+        g.db.commit()
+        cur.close()
+        con.close()
+
+        return redirect(url_for('admin.admin_shake_menu'))
+
+    if form1.validate_on_submit():
+
+        shake_id2 = form1.shake_id2.data
+        switch = form1.switch_unavail.data
+
+        print(shake_id2, switch)
+
+        cur.execute("""UPDATE shakes
+                    SET available = True
+                    WHERE id = %s""",
+                    (shake_id2,))
+        g.db.commit()
+        cur.close()
+        con.close()
+
+        return redirect(url_for('admin.admin_shake_menu'))
+
+    if form2.validate_on_submit():
+
+        item_name = form2.item_name.data
+        description = form2.description.data
+        group = form2.group.data
+
+        print(item_name, description, group)
+
+        cur.execute("""INSERT INTO shakes (name, shake_group, description, available)
+                    VALUES (%s,%s,%s, True)""",
+                    (item_name, group, description))
+        g.db.commit()
+        cur.close()
+        con.close()
+
+        return redirect(url_for('admin.admin_shake_menu'))
+
+    cur.close()
+    con.close()
+    return render_template("layouts/admin/shake_menu.html", all_shakes=all_shakes, not_shakes=not_shakes, form2=form2, form=form, form1=form1)

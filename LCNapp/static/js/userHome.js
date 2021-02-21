@@ -42,7 +42,7 @@ function view_had_menu(){
 }
 
 function view_try_menu(){
-  if (all_menu.style.display === "block") {
+  if (all_menu.style.display == "block") {
     all_menu.style.display = "none";
   } else {
     all_menu.style.display = "none";

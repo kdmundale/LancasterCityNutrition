@@ -1,11 +1,11 @@
-const menu_a = document.getElementById('menu_box_a');
-const menu_e = document.getElementById('menu_box_e');
-const menu_i = document.getElementById('menu_box_i');
-const menu_m = document.getElementById('menu_box_m');
-const menu_q = document.getElementById('menu_box_q');
-const menu_v = document.getElementById('menu_box_v');
+const menu_1 = document.getElementById('menu_box_a');
+const menu_2 = document.getElementById('menu_box_e');
+const menu_3 = document.getElementById('menu_box_i');
+const menu_4 = document.getElementById('menu_box_m');
+const menu_5 = document.getElementById('menu_box_q');
+const menu_6 = document.getElementById('menu_box_v');
 
-const menus = [menu_a, menu_e, menu_i, menu_m, menu_q, menu_v];
+const menus = [menu_1, menu_2, menu_3, menu_4, menu_5, menu_6];
 const menuL = menus.length;
 
 function menu_display(x){
@@ -24,69 +24,21 @@ function menu_hide(x){
   }
 }
 
-function view_menu_a(){
+function view_menu(menu){
   for (i=0; i < menuL; i++){
-    if (menus[i]== menu_a){
-      menu_display(menus[i]);
+    if (menus[i]== menu){
+      menu_display(menu);
     } else {
       menu_hide(menus[i]);
     }
   }
 }
 
-function view_menu_e(){
-  for (i=0; i < menuL; i++){
-    if (menus[i]== menu_e){
-      menu_display(menus[i]);
-    } else {
-      menu_hide(menus[i]);
-    }
-  }
-}
 
-function view_menu_i(){
-  for (i=0; i < menuL; i++){
-    if (menus[i]== menu_i){
-      menu_display(menus[i]);
-    } else {
-      menu_hide(menus[i]);
-    }
-  }
-}
 
-function view_menu_m(){
-  for (i=0; i < menuL; i++){
-    if (menus[i]== menu_m){
-      menu_display(menus[i]);
-    } else {
-      menu_hide(menus[i]);
-    }
-  }
-}
-
-function view_menu_q(){
-  for (i=0; i < menuL; i++){
-    if (menus[i]== menu_q){
-      menu_display(menus[i]);
-    } else {
-      menu_hide(menus[i]);
-    }
-  }
-}
-
-function view_menu_v(){
-  for (i=0; i < menuL; i++){
-    if (menus[i]== menu_v){
-      menu_display(menu_v);
-    } else {
-      menu_hide(menus[i]);
-    }
-  }
-}
-
-document.getElementById('menu_a_button').addEventListener('click', view_menu_a);
-document.getElementById('menu_e_button').addEventListener('click', view_menu_e);
-document.getElementById('menu_i_button').addEventListener('click', view_menu_i);
-document.getElementById('menu_m_button').addEventListener('click', view_menu_m);
-document.getElementById('menu_q_button').addEventListener('click', view_menu_q);
-document.getElementById('menu_v_button').addEventListener('click', view_menu_v);
+document.getElementById('menu_a_button').addEventListener('click', function(){ view_menu(menu_1);});
+document.getElementById('menu_e_button').addEventListener('click', function(){ view_menu(menu_2);});
+document.getElementById('menu_i_button').addEventListener('click', function(){ view_menu(menu_3);});
+document.getElementById('menu_m_button').addEventListener('click', function(){ view_menu(menu_4);});
+document.getElementById('menu_q_button').addEventListener('click', function(){ view_menu(menu_5);});
+document.getElementById('menu_v_button').addEventListener('click', function(){ view_menu(menu_6);});
